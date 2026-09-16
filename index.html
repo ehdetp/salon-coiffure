@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f7f4ef">
+<title>Raymond Azar | Salon de coiffure aux Lilas</title>
+<meta name="description" content="Salon Raymond Azar aux Lilas. Coiffure femme, homme et enfant, balayage, coloration, ombré hair, patine, lissage brésilien et soins capillaires.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Manrope:wght@300;400;500;600&display=swap');
+
+:root{
+  --ink:#151412; --soft:#6e6962; --cream:#f7f4ef; --cream2:#eee8df;
+  --paper:#fff; --line:#ded7cc; --gold:#b69a6b; --brown:#6f5946;
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:"Manrope",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);overflow-x:hidden}
+img{display:block;width:100%}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+.container{width:min(1240px,calc(100% - 64px));margin:auto}
+.kicker{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--brown);font-weight:600}
+.display{font-family:var(--serif);font-size:clamp(52px,6vw,88px);line-height:.91;font-weight:400;letter-spacing:-.035em}
+.copy{color:var(--soft);font-size:15px;line-height:1.9}
+.btn{min-height:56px;padding:0 28px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--ink);font-size:10px;letter-spacing:.2em;text-transform:uppercase;transition:.3s}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:var(--brown);border-color:var(--brown);transform:translateY(-2px)}
+.btn-light{background:transparent}
+.btn-light:hover{background:var(--ink);color:#fff}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* header */
+.header{position:fixed;z-index:50;top:0;left:0;width:100%;background:rgba(255,255,255,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(21,20,18,.08)}
+.nav{height:84px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.brand{display:flex;align-items:center;gap:13px}
+.brand-logo{width:58px;height:58px;object-fit:contain;object-position:center;background:transparent;border:0;box-shadow:none}
+.brand-word{font-family:var(--serif);font-size:21px;letter-spacing:.04em}
+.links{list-style:none;display:flex;align-items:center;gap:30px}
+.links a{font-size:10px;letter-spacing:.16em;text-transform:uppercase}
+.links a:not(.nav-cta){position:relative}
+.links a:not(.nav-cta)::after{content:"";position:absolute;left:0;bottom:-7px;width:0;height:1px;background:var(--ink);transition:.25s}
+.links a:hover::after{width:100%}
+.nav-cta{padding:14px 19px;background:var(--ink);color:#fff}
+
+/* hero */
+.hero{
+  min-height:clamp(650px,82vh,900px);
+  padding-top:84px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  color:#fff;
+  overflow:hidden;
+  background:#28231f url("Images/banniere.jpg") center center/cover no-repeat;
+}
+.hero:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(13,12,10,.54) 0%,rgba(13,12,10,.29) 38%,rgba(13,12,10,.08) 67%,rgba(13,12,10,.16) 100%);
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.10),rgba(0,0,0,.02) 45%,rgba(0,0,0,.30));
+}
+.hero-inner{
+  position:relative;
+  z-index:2;
+  width:min(1240px,calc(100% - 64px));
+  margin:0 auto;
+  padding:80px 0 70px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  transform:translateX(-2%);
+}
+.hero .kicker{
+  position:relative;
+  padding-left:0;
+  color:#fff;
+  font-size:11px;
+  letter-spacing:.34em;
+  text-shadow:0 2px 16px rgba(0,0,0,.35);
+}
+.hero .kicker:before{display:none}
+.hero h1{
+  max-width:680px;
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:clamp(64px,6.4vw,104px);
+  line-height:.88;
+  letter-spacing:-.045em;
+  margin:22px 0 25px;
+  text-shadow:0 5px 30px rgba(0,0,0,.24);
+}
+.hero h1 em{
+  font-weight:400;
+  display:block;
+  font-size:.62em;
+  line-height:1;
+  margin-top:14px;
+}
+.hero-sub{
+  font-size:10px;
+  letter-spacing:.30em;
+  text-transform:uppercase;
+  margin:0 0 34px;
+  text-shadow:0 2px 12px rgba(0,0,0,.45);
+}
+.hero-actions{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:22px;
+}
+.hero .btn-dark{
+  min-height:58px;
+  background:#171717;
+  color:#fff;
+  border:1px solid #171717;
+  box-shadow:0 14px 34px rgba(0,0,0,.22);
+}
+.hero .btn-dark:hover{
+  background:#fff;
+  color:#171717;
+  border-color:#fff;
+}
+.hero-phone{
+  color:#fff;
+  border-bottom:1px solid rgba(255,255,255,.72);
+  padding:13px 2px 8px;
+  font-family:var(--serif);
+  font-size:20px;
+  text-shadow:0 2px 12px rgba(0,0,0,.4);
+}
+
+/* intro */
+.intro{padding:145px 0;text-align:center}
+.intro .display{max-width:900px;margin:20px auto 0}
+.intro .copy{max-width:700px;margin:34px auto 0}
+.mini-values{margin:70px auto 0;max-width:930px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr)}
+.value{padding:25px 20px;font-family:var(--serif);font-size:20px}
+.value+ .value{border-left:1px solid var(--line)}
+
+/* story */
+.story{background:var(--cream);padding:130px 0}
+.story-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(60px,8vw,120px);align-items:center}
+.story-photo{position:relative;padding:0 0 28px 28px}
+.story-photo:before{content:"";position:absolute;inset:28px 28px 0 0;border:1px solid var(--gold)}
+.story-photo img{height:720px;object-fit:cover;object-position:center 30%;position:relative}
+.story-badge{position:absolute;right:-22px;bottom:72px;width:112px;height:112px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;text-align:center;font-family:var(--serif);font-style:italic;font-size:16px;line-height:1.15;z-index:2}
+.story-text .display{margin:20px 0 38px}
+.story-text .copy{margin-bottom:18px;max-width:610px}
+.signature{font-family:var(--serif);font-size:27px;font-style:italic;margin-top:32px}
+
+/* expertise */
+.services{padding:135px 0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:60px;margin-bottom:70px}
+.section-head .copy{max-width:430px}
+.services-list{border-top:1px solid var(--line)}
+.service{display:grid;grid-template-columns:70px 1fr 1fr 40px;align-items:center;gap:28px;min-height:130px;border-bottom:1px solid var(--line);transition:.35s}
+.service:hover{padding-left:14px;background:linear-gradient(90deg,rgba(247,244,239,.8),transparent)}
+.num{font-family:var(--serif);font-style:italic;color:var(--gold)}
+.service-name{font-family:var(--serif);font-size:31px}
+.service-desc{color:var(--soft);font-size:13px;line-height:1.75}
+.arrow{font-size:20px}
+
+/* gallery */
+.gallery{padding:125px 0 110px;background:var(--ink);color:#fff;overflow:hidden}
+.gallery .kicker{color:#bca98b}
+.gallery-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:55px}
+.gallery-controls{display:flex;gap:10px}
+.gallery-btn{width:52px;height:52px;border:1px solid #4c4945;background:transparent;color:#fff;border-radius:50%;cursor:pointer;transition:.25s;font-size:18px}
+.gallery-btn:hover{background:#fff;color:#111}
+.gallery-track{display:flex;gap:18px;overflow:auto;scrollbar-width:none;scroll-snap-type:x mandatory;padding-left:max(32px,calc((100vw - 1240px)/2));padding-right:32px}
+.gallery-track::-webkit-scrollbar{display:none}
+.card{flex:0 0 min(390px,78vw);scroll-snap-align:start}
+.card-frame{overflow:hidden;background:#222}
+.card img{height:550px;object-fit:cover;transition:transform .7s}
+.card:hover img{transform:scale(1.035)}
+.caption{display:flex;justify-content:space-between;gap:20px;margin-top:15px;color:#aaa;font-size:9px;letter-spacing:.2em;text-transform:uppercase}
+
+/* prices */
+.prices{padding:135px 0;background:var(--cream)}
+.prices-top{text-align:center;max-width:760px;margin:0 auto 58px}
+.prices-top .display{margin:18px 0 26px}
+.tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:48px;position:sticky;top:98px;z-index:5}
+.tab{border:1px solid #cfc6ba;background:rgba(247,244,239,.94);padding:14px 23px;cursor:pointer;font-size:9px;letter-spacing:.2em;text-transform:uppercase;transition:.25s}
+.tab.active,.tab:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.panel{display:none;max-width:1000px;margin:auto}
+.panel.active{display:grid;gap:16px;animation:fade .35s ease}
+@keyframes fade{from{opacity:.3;transform:translateY(6px)}to{opacity:1;transform:none}}
+.price-box{background:#fff;padding:42px 48px;border:1px solid rgba(222,215,204,.65)}
+.price-box h3{font-family:var(--serif);font-size:30px;font-weight:400;padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid var(--line)}
+.price-line{display:flex;align-items:flex-end;gap:12px;padding:9px 0;font-size:13px}
+.price-name{line-height:1.45}
+.dots{flex:1;border-bottom:1px dotted #c9c0b5;transform:translateY(-5px)}
+.amount{font-family:var(--serif);font-size:17px;white-space:nowrap}
+.price-note{text-align:center;max-width:720px;margin:38px auto 0;color:var(--soft);font-size:11px;line-height:1.8}
+
+/* booking */
+.booking{padding:135px 0;text-align:center;position:relative;overflow:hidden}
+.booking:before{content:"";position:absolute;width:460px;height:460px;border:1px solid rgba(182,154,107,.22);border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none}
+.booking .display{margin:18px auto 28px;position:relative}
+.booking .copy{max-width:590px;margin:0 auto 36px;position:relative}
+.booking .btn{position:relative}
+
+/* footer */
+.footer{background:var(--ink);color:#fff;padding:100px 0 36px}
+.footer-grid{display:grid;grid-template-columns:1.3fr .7fr .7fr;gap:70px;padding-bottom:75px}
+.footer-brand{display:flex;align-items:center;gap:16px;margin-bottom:25px}
+.footer-logo{width:76px;height:76px;border-radius:50%;object-fit:cover}
+.footer-title{font-family:var(--serif);font-size:clamp(48px,5vw,76px);font-weight:400;line-height:.9}
+.footer h4{font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:#8f8a83;margin-bottom:20px}
+.footer p,.footer .col a{color:#cbc7c1;font-size:13px;line-height:2}
+.footer .col a:hover{color:#fff}
+.footer-phone{font-family:var(--serif);font-size:25px!important;color:#fff!important;margin-top:12px;display:inline-block}
+.footer-bottom{border-top:1px solid #34312e;padding-top:26px;display:flex;justify-content:space-between;gap:20px;color:#77716b;font-size:9px;letter-spacing:.1em;text-transform:uppercase}
+
+/* tablet */
+@media(max-width:1000px){
+ .container{width:min(100% - 42px,1240px)}
+ .links{gap:18px}.links li:nth-child(2),.links li:nth-child(3){display:none}
+ .hero{min-height:700px;background-position:center center}
+ .hero-inner{width:min(100% - 42px,1240px);padding:70px 0 60px;transform:none}
+ .story-grid{gap:55px}.story-photo img{height:620px}
+ .service{grid-template-columns:55px 1fr 1fr 30px}
+}
+/* mobile */
+@media(max-width:720px){
+ .container{width:calc(100% - 34px)}
+ .nav{height:70px}.header .brand-word{display:none}.brand-logo{width:46px;height:46px}
+ .links li:not(:last-child){display:none}.nav-cta{padding:12px 14px;font-size:9px}
+ .hero{padding-top:70px;min-height:680px;background-position:58% center}
+ .hero:before{background:linear-gradient(90deg,rgba(13,12,10,.58),rgba(13,12,10,.22) 72%,rgba(13,12,10,.16))}
+ .hero-inner{width:calc(100% - 34px);padding:72px 0 54px;align-items:center;text-align:center;transform:none}
+ .hero h1{max-width:94%;font-size:clamp(52px,15vw,70px);margin:18px 0 20px}
+ .hero h1 em{font-size:.64em;margin-top:10px}
+ .hero-sub{font-size:9px;letter-spacing:.2em;margin-bottom:28px}
+ .hero-actions{flex-direction:column;align-items:center;width:min(100%,315px);gap:8px}
+ .hero-actions .btn{width:100%}
+ .hero-phone{border:0;padding-left:0;text-align:center}
+ .display{font-size:clamp(46px,14vw,62px)}
+ .intro{padding:95px 0}.mini-values{grid-template-columns:1fr}.value+.value{border-left:0;border-top:1px solid var(--line)}
+ .story{padding:82px 0}.story-grid{grid-template-columns:1fr;gap:65px}.story-photo{padding:0}.story-photo:before{display:none}.story-photo img{height:auto;max-height:620px}.story-badge{right:12px;bottom:-35px;width:95px;height:95px}
+ .services{padding:90px 0}.section-head{display:block;margin-bottom:45px}.section-head .copy{margin-top:25px}
+ .service{grid-template-columns:36px 1fr;padding:24px 0;gap:12px}.service-desc{grid-column:2}.arrow{display:none}.service-name{font-size:25px}
+ .gallery{padding:88px 0}.gallery-controls{display:none}.card{flex-basis:82vw}.card img{height:470px}
+ .prices{padding:90px 0}.tabs{top:78px;justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;padding-bottom:5px}.tab{flex:0 0 auto}
+ .price-box{padding:30px 20px}.price-box h3{font-size:26px}.price-line{font-size:12px;gap:8px}.dots{min-width:15px}.amount{font-size:15px}
+ .booking{padding:100px 0}
+ .footer{padding-top:80px}.footer-grid{grid-template-columns:1fr;gap:45px;padding-bottom:55px}.footer-bottom{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="nav container">
+    <a class="brand" href="#accueil">
+      <img class="brand-logo" src="Images/logo.jpg" alt="Logo Raymond Azar">
+      <span class="brand-word">Raymond Azar</span>
+    </a>
+    <ul class="links">
+      <li><a href="#salon">Le salon</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#realisations">Réalisations</a></li>
+      <li><a href="#tarifs">Tarifs</a></li>
+      <li><a class="nav-cta" href="tel:0143620838">Rendez-vous</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="accueil">
+  <div class="hero-inner">
+    <div class="kicker">Salon de coiffure · Les Lilas</div>
+    <h1>L’élégance,<em>jusque dans le détail.</em></h1>
+    <p class="hero-sub">Femme · Homme · Enfant</p>
+    <div class="hero-actions">
+      <a class="btn btn-dark" href="tel:0143620838">Prendre rendez-vous</a>
+      <a class="hero-phone" href="tel:0143620838">01 43 62 08 38</a>
+    </div>
+  </div>
+</section>
+
+<section class="intro reveal">
+ <div class="container">
+   <div class="kicker">La maison</div>
+   <h2 class="display">Votre beauté,<br>notre savoir-faire.</h2>
+   <p class="copy">Coupe, couleur, balayage, soins et transformations : chaque prestation est pensée avec attention pour révéler votre style et respecter votre chevelure.</p>
+   <div class="mini-values">
+     <div class="value">Écoute</div><div class="value">Précision</div><div class="value">Élégance</div>
+   </div>
+ </div>
+</section>
+
+<section class="story" id="salon">
+ <div class="container story-grid">
+   <div class="story-photo reveal">
+     <img src="Images/equipe.jpg" alt="Raymond Azar et Tiffany Azar au salon">
+     <div class="story-badge">Une histoire<br>de famille</div>
+   </div>
+   <div class="story-text reveal">
+     <div class="kicker">Notre histoire</div>
+     <h2 class="display">Le savoir-faire<br>en héritage.</h2>
+     <p class="copy">Depuis 2007, le Salon Raymond Azar accueille aux Lilas une clientèle femme, homme et enfant dans une ambiance chaleureuse et familiale.</p>
+     <p class="copy">Fondé par Raymond Azar, le salon est aujourd’hui tenu par Raymond Azar et sa fille Tiffany Azar, tous deux coiffeurs passionnés.</p>
+     <p class="copy">Tiffany est notamment spécialisée dans les techniques de couleur. Coloration, balayage, ombré hair, patine et tie and dye font partie du savoir-faire de la maison, aux côtés des coupes, brushings, soins, lissages, extensions et prestations homme.</p>
+     <p class="copy">Ici, chaque coiffure commence par l’écoute : comprendre vos envies, votre style et votre cheveu afin de proposer un résultat qui vous ressemble.</p>
+     <div class="signature">Raymond & Tiffany</div>
+   </div>
+ </div>
+</section>
+
+<section class="services" id="expertise">
+ <div class="container">
+  <div class="section-head reveal">
+   <div><div class="kicker">Notre savoir-faire</div><h2 class="display" style="margin-top:18px">L’expertise<br>Raymond Azar.</h2></div>
+   <p class="copy">Des prestations personnalisées, réalisées avec précision et adaptées à votre style, votre visage et votre chevelure.</p>
+  </div>
+  <div class="services-list reveal">
+   <div class="service"><div class="num">01</div><div class="service-name">Coupe & Brushing</div><div class="service-desc">Des coupes et coiffages pensés pour mettre en valeur votre visage et votre style.</div><div class="arrow">↗</div></div>
+   <div class="service"><div class="num">02</div><div class="service-name">Couleur</div><div class="service-desc">Coloration racines, patines et techniques personnalisées pour révéler profondeur et éclat.</div><div class="arrow">↗</div></div>
+   <div class="service"><div class="num">03</div><div class="service-name">Balayage & Ombré</div><div class="service-desc">Des nuances travaillées sur mesure pour créer lumière, contraste et naturel.</div><div class="arrow">↗</div></div>
+   <div class="service"><div class="num">04</div><div class="service-name">Lissage & Soins</div><div class="service-desc">Lissage brésilien, botox capillaire et soins profonds pour sublimer la matière.</div><div class="arrow">↗</div></div>
+   <div class="service"><div class="num">05</div><div class="service-name">Homme & Enfant</div><div class="service-desc">Coupe, dégradé américain, barbe, cover homme et prestations adaptées aux plus jeunes.</div><div class="arrow">↗</div></div>
+  </div>
+ </div>
+</section>
+
+<section class="gallery" id="realisations">
+ <div class="container gallery-head reveal">
+  <div><div class="kicker">Nos réalisations</div><h2 class="display" style="margin-top:18px">La couleur<br>en mouvement.</h2></div>
+  <div class="gallery-controls"><button class="gallery-btn" onclick="moveGallery(-1)" aria-label="Précédent">←</button><button class="gallery-btn" onclick="moveGallery(1)" aria-label="Suivant">→</button></div>
+ </div>
+ <div class="gallery-track" id="galleryTrack">
+  <div class="card"><div class="card-frame"><img src="Images/realisation-1.jpg" alt="Balayage blond"></div><div class="caption"><span>Balayage</span><span>Raymond Azar</span></div></div>
+  <div class="card"><div class="card-frame"><img src="Images/realisation-2.jpg" alt="Balayage naturel"></div><div class="caption"><span>Balayage</span><span>Les Lilas</span></div></div>
+  <div class="card"><div class="card-frame"><img src="Images/realisation-3.jpg" alt="Couleur naturelle"></div><div class="caption"><span>Couleur</span><span>Raymond Azar</span></div></div>
+  <div class="card"><div class="card-frame"><img src="Images/realisation-4.jpg" alt="Ombré hair"></div><div class="caption"><span>Ombré Hair</span><span>Les Lilas</span></div></div>
+  <div class="card"><div class="card-frame"><img src="Images/realisation-5.jpg" alt="Technique de couleur"></div><div class="caption"><span>Coloration</span><span>Raymond Azar</span></div></div>
+ </div>
+</section>
+
+<section class="prices" id="tarifs">
+ <div class="container">
+  <div class="prices-top reveal"><div class="kicker">La carte</div><h2 class="display">Nos tarifs.</h2><p class="copy">Une carte claire et élégante. Pour les transformations importantes, contactez le salon afin d’établir un diagnostic personnalisé.</p></div>
+  <div class="tabs">
+   <button class="tab active" onclick="showPrice('femme',this)">Femme</button>
+   <button class="tab" onclick="showPrice('techniques',this)">Couleur</button>
+   <button class="tab" onclick="showPrice('homme',this)">Homme</button>
+   <button class="tab" onclick="showPrice('soins',this)">Soins & Lissage</button>
+  </div>
+
+  <div class="panel active" id="femme">
+   <div class="price-box"><h3>Coupe & Brushing</h3>
+    <div class="price-line"><span class="price-name">Shampooing brushing — cheveux courts</span><span class="dots"></span><span class="amount">24 €</span></div>
+    <div class="price-line"><span class="price-name">Shampooing brushing — cheveux longs</span><span class="dots"></span><span class="amount">28 €</span></div>
+    <div class="price-line"><span class="price-name">Shampooing coupe brushing — cheveux courts</span><span class="dots"></span><span class="amount">30 €</span></div>
+    <div class="price-line"><span class="price-name">Shampooing coupe brushing — cheveux longs</span><span class="dots"></span><span class="amount">36 €</span></div>
+    <div class="price-line"><span class="price-name">Brushing bouclé — cheveux courts</span><span class="dots"></span><span class="amount">32 €</span></div>
+    <div class="price-line"><span class="price-name">Brushing bouclé — cheveux longs</span><span class="dots"></span><span class="amount">35 €</span></div>
+    <div class="price-line"><span class="price-name">Brushing wavy — cheveux courts</span><span class="dots"></span><span class="amount">33 €</span></div>
+    <div class="price-line"><span class="price-name">Brushing wavy — cheveux longs</span><span class="dots"></span><span class="amount">35 €</span></div>
+    <div class="price-line"><span class="price-name">Shampooing séchage</span><span class="dots"></span><span class="amount">15 €</span></div>
+    <div class="price-line"><span class="price-name">Shampooing coupe séchage</span><span class="dots"></span><span class="amount">27 €</span></div>
+    <div class="price-line"><span class="price-name">Brushing difficile</span><span class="dots"></span><span class="amount">33 €</span></div>
+   </div>
+   <div class="price-box"><h3>Forfaits couleur</h3>
+    <div class="price-line"><span class="price-name">Couleur racines + brushing court</span><span class="dots"></span><span class="amount">55 €</span></div>
+    <div class="price-line"><span class="price-name">Couleur racines + brushing long</span><span class="dots"></span><span class="amount">61 €</span></div>
+    <div class="price-line"><span class="price-name">Couleur racines + coupe brushing court</span><span class="dots"></span><span class="amount">57 €</span></div>
+    <div class="price-line"><span class="price-name">Couleur racines + coupe brushing long</span><span class="dots"></span><span class="amount">66 €</span></div>
+   </div>
+  </div>
+
+  <div class="panel" id="techniques">
+   <div class="price-box"><h3>Bar à couleur</h3>
+    <div class="price-line"><span class="price-name">Couleur racines</span><span class="dots"></span><span class="amount">37 €</span></div>
+    <div class="price-line"><span class="price-name">Balayage — cheveux courts</span><span class="dots"></span><span class="amount">55 €</span></div>
+    <div class="price-line"><span class="price-name">Balayage — cheveux longs</span><span class="dots"></span><span class="amount">68 €</span></div>
+    <div class="price-line"><span class="price-name">Mèches — cheveux courts</span><span class="dots"></span><span class="amount">88 €</span></div>
+    <div class="price-line"><span class="price-name">Mèches — cheveux longs</span><span class="dots"></span><span class="amount">98 €</span></div>
+    <div class="price-line"><span class="price-name">Ombré Hair — cheveux courts</span><span class="dots"></span><span class="amount">120 €</span></div>
+    <div class="price-line"><span class="price-name">Ombré Hair — cheveux longs</span><span class="dots"></span><span class="amount">150 €</span></div>
+    <div class="price-line"><span class="price-name">Tie & Dye — cheveux courts</span><span class="dots"></span><span class="amount">140 €</span></div>
+    <div class="price-line"><span class="price-name">Tie & Dye — cheveux longs</span><span class="dots"></span><span class="amount">170 €</span></div>
+    <div class="price-line"><span class="price-name">Décoloration / Effaceur</span><span class="dots"></span><span class="amount">Sur devis</span></div>
+   </div>
+   <div class="price-box"><h3>Rituel Patine</h3>
+    <div class="price-line"><span class="price-name">Patine Express — 15 min</span><span class="dots"></span><span class="amount">25 €</span></div>
+    <div class="price-line"><span class="price-name">Patine Technique — 45 min</span><span class="dots"></span><span class="amount">38 €</span></div>
+   </div>
+  </div>
+
+  <div class="panel" id="homme">
+   <div class="price-box"><h3>Homme</h3>
+    <div class="price-line"><span class="price-name">Shampooing coupe coiffage</span><span class="dots"></span><span class="amount">23 €</span></div>
+    <div class="price-line"><span class="price-name">Shampooing coupe brushing</span><span class="dots"></span><span class="amount">28 €</span></div>
+    <div class="price-line"><span class="price-name">Shampooing coupe barbe coiffage</span><span class="dots"></span><span class="amount">33 €</span></div>
+    <div class="price-line"><span class="price-name">Barbe seule</span><span class="dots"></span><span class="amount">12 €</span></div>
+   </div>
+   <div class="price-box"><h3>Bar à couleur homme</h3>
+    <div class="price-line"><span class="price-name">Cover semi-permanente + shampooing coiffage</span><span class="dots"></span><span class="amount">28 €</span></div>
+    <div class="price-line"><span class="price-name">Cover</span><span class="dots"></span><span class="amount">20 €</span></div>
+    <div class="price-line"><span class="price-name">Couleur</span><span class="dots"></span><span class="amount">25 €</span></div>
+    <div class="price-line"><span class="price-name">Dégradé américain</span><span class="dots"></span><span class="amount">24 €</span></div>
+   </div>
+   <div class="price-box"><h3>Enfants</h3>
+    <div class="price-line"><span class="price-name">Shampooing coupe garçon — moins de 6 ans</span><span class="dots"></span><span class="amount">18 €</span></div>
+    <div class="price-line"><span class="price-name">Shampooing coupe séchage fille — moins de 6 ans</span><span class="dots"></span><span class="amount">24 €</span></div>
+   </div>
+  </div>
+
+  <div class="panel" id="soins">
+   <div class="price-box"><h3>Lissage Brésilien</h3>
+    <div class="price-line"><span class="price-name">Cheveux courts</span><span class="dots"></span><span class="amount">À partir de 150 €</span></div>
+    <div class="price-line"><span class="price-name">Cheveux mi-longs</span><span class="dots"></span><span class="amount">À partir de 170 €</span></div>
+    <div class="price-line"><span class="price-name">Cheveux longs</span><span class="dots"></span><span class="amount">À partir de 200 €</span></div>
+   </div>
+   <div class="price-box"><h3>Botox Capillaire</h3>
+    <div class="price-line"><span class="price-name">Cheveux courts</span><span class="dots"></span><span class="amount">85 €</span></div>
+    <div class="price-line"><span class="price-name">Cheveux mi-longs</span><span class="dots"></span><span class="amount">100 €</span></div>
+    <div class="price-line"><span class="price-name">Cheveux longs</span><span class="dots"></span><span class="amount">120 €</span></div>
+   </div>
+   <div class="price-box"><h3>Soins & Suppléments</h3>
+    <div class="price-line"><span class="price-name">Soin démêlant</span><span class="dots"></span><span class="amount">5 €</span></div>
+    <div class="price-line"><span class="price-name">Soin profond sous casque</span><span class="dots"></span><span class="amount">15 €</span></div>
+    <div class="price-line"><span class="price-name">Brushing très long ou difficile</span><span class="dots"></span><span class="amount">+5 €</span></div>
+    <div class="price-line"><span class="price-name">Supplément couleur</span><span class="dots"></span><span class="amount">+10 €</span></div>
+    <div class="price-line"><span class="price-name">Shampooing traitant</span><span class="dots"></span><span class="amount">5 €</span></div>
+    <div class="price-line"><span class="price-name">Shampooing argent</span><span class="dots"></span><span class="amount">5 €</span></div>
+    <div class="price-line"><span class="price-name">Entretien frange</span><span class="dots"></span><span class="amount">10 €</span></div>
+    <div class="price-line"><span class="price-name">Création frange</span><span class="dots"></span><span class="amount">20 €</span></div>
+   </div>
+  </div>
+  <p class="price-note">Les tarifs peuvent varier selon la longueur, l’épaisseur et le travail nécessaire. Pour une transformation importante, contactez directement le salon afin d’obtenir un diagnostic personnalisé.</p>
+ </div>
+</section>
+
+<section class="booking reveal">
+ <div class="container">
+  <div class="kicker">Votre prochain rendez-vous</div>
+  <h2 class="display">Confiez-nous<br>vos cheveux.</h2>
+  <p class="copy">Une envie de changement, une nouvelle couleur ou simplement votre rendez-vous habituel ? Contactez directement le salon.</p>
+  <a class="btn btn-dark" href="tel:0143620838">Appeler le 01 43 62 08 38</a>
+ </div>
+</section>
+</main>
+
+<footer class="footer" id="contact">
+ <div class="container">
+  <div class="footer-grid">
+   <div>
+    <div class="footer-brand"><img class="footer-logo" src="Images/logo.jpg" alt="Logo Raymond Azar"><div class="kicker" style="color:#bca98b">Salon Raymond Azar</div></div>
+    <h2 class="footer-title">À bientôt<br>au salon.</h2>
+    <a class="footer-phone" href="tel:0143620838">01 43 62 08 38</a>
+   </div>
+   <div class="col"><h4>Adresse</h4><p>2 Boulevard Eugène Decros<br>93260 Les Lilas</p></div>
+   <div class="col"><h4>Suivez-nous</h4><a href="https://www.instagram.com/coiffureraymondazar/?hl=fr" target="_blank" rel="noopener">Instagram ↗</a><br><a href="#tarifs">Voir les tarifs ↗</a></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Raymond Azar · Salon de coiffure aux Lilas</span><span>Femme · Homme · Enfant</span></div>
+ </div>
+</footer>
+
+<script>
+function moveGallery(direction){
+ const gallery=document.getElementById("galleryTrack");
+ gallery.scrollBy({left:direction*Math.min(420,window.innerWidth*.84),behavior:"smooth"});
+}
+function showPrice(id,button){
+ document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));
+ document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+ document.getElementById(id).classList.add("active");
+ button.classList.add("active");
+}
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target)}})
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
