@@ -259,6 +259,64 @@ button{font:inherit}
  .footer{padding-top:80px}.footer-grid{grid-template-columns:1fr;gap:45px;padding-bottom:55px}.footer-bottom{flex-direction:column}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
+
+/* Bannière : conserver le comptoir et le logo visibles à chaque largeur. */
+.hero{
+  min-height:0;
+  display:block;
+  background:#28231f;
+}
+.hero-image{
+  width:100%;
+  height:auto;
+  aspect-ratio:8 / 3;
+  object-fit:cover;
+  object-position:left center;
+}
+.hero:before{
+  inset:84px 0 0;
+  background:linear-gradient(90deg,transparent 60%,rgba(13,12,10,.72) 76%,rgba(13,12,10,.85));
+  z-index:1;
+  pointer-events:none;
+}
+.hero:after{display:none}
+.hero-inner{
+  position:absolute;
+  inset:84px 2% 0 auto;
+  width:30%;
+  margin:0;
+  padding:24px 0;
+  justify-content:center;
+  transform:none;
+}
+.hero h1{font-size:clamp(40px,4vw,76px);margin:18px 0 20px}
+.hero .kicker{font-size:9px;letter-spacing:.22em}
+.hero-sub{font-size:9px;letter-spacing:.18em;margin-bottom:22px}
+.hero-actions{flex-direction:column;gap:6px}
+.hero .btn-dark{min-height:50px;padding:0 20px}
+@media(max-width:1000px){
+  .hero{min-height:0}
+  .hero:before{display:none}
+  .hero-inner{
+    position:relative;
+    inset:auto;
+    width:100%;
+    padding:42px 21px 36px;
+    background:var(--cream);
+    color:var(--ink);
+  }
+  .hero .kicker{color:var(--brown);text-shadow:none}
+  .hero h1{font-size:clamp(48px,7vw,68px);text-shadow:none}
+  .hero-sub{color:var(--soft);text-shadow:none}
+  .hero-phone{color:var(--ink);text-shadow:none;border-color:var(--ink)}
+  .hero .btn-dark:hover{background:var(--brown);border-color:var(--brown);color:#fff}
+}
+@media(max-width:720px){
+  .hero-image{aspect-ratio:3 / 2}
+  .hero-inner{padding:34px 17px 30px}
+  .hero h1{max-width:100%;font-size:clamp(46px,12vw,64px)}
+  .hero-actions{width:min(100%,315px)}
+}
 </style>
 </head>
 <body>
@@ -280,6 +338,7 @@ button{font:inherit}
 
 <main>
 <section class="hero" id="accueil">
+  <img class="hero-image" src="Images/banniere-raymond-tiffany.png" width="2048" height="768" fetchpriority="high" alt="Le salon : comptoir à gauche avec Raymond Azar &amp; Tiffany Azar, Salon de coiffure, et monogramme sur le mur du fond.">
   <div class="hero-inner">
     <div class="kicker">Salon de coiffure · Les Lilas</div>
     <h1>L’élégance,<em>jusque dans le détail.</em></h1>
