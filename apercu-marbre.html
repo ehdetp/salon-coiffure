@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f7f4ef">
+<title>Raymond Azar | Salon de coiffure aux Lilas</title>
+<meta name="description" content="Salon Raymond Azar aux Lilas. Coiffure femme, homme et enfant, balayage, coloration, ombré hair, patine, lissage brésilien et soins capillaires.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap');
+:root{--ink:#27221d;--soft:#756d64;--paper:#fbfaf7;--cream:#f4f0e9;--stone:#eae2d6;--bronze:#95734d;--gold:#b3936d;--line:#ded5c8;--serif:"Cormorant Garamond",Georgia,serif;--sans:"Manrope",Arial,sans-serif;--ease:cubic-bezier(.22,1,.36,1)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;scroll-padding-top:110px}body{font-family:var(--sans);color:var(--ink);background:var(--paper);overflow-x:clip;-webkit-font-smoothing:antialiased}::selection{background:#d7c4a8;color:var(--ink)}
+img{display:block;width:100%;height:auto}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer}a,button{-webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:5px}
+.container{width:min(1320px,calc(100% - 96px));margin-inline:auto}.kicker{font-size:10px;letter-spacing:.23em;line-height:1.5;font-weight:500;text-transform:uppercase;color:var(--bronze);display:flex;align-items:center;gap:15px}.kicker:before{content:"";width:30px;height:1px;background:currentColor;flex:none}
+.display{font:400 clamp(60px,6.4vw,99px)/.94 var(--serif);letter-spacing:-.045em;text-wrap:balance}.copy{font-size:14px;line-height:1.95;color:var(--soft);font-weight:400}
+.btn{min-height:56px;padding:0 28px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--ink);font-size:10px;letter-spacing:.13em;text-transform:uppercase;transition:background .3s,color .3s,border-color .3s,transform .5s var(--ease)}.btn-dark{background:var(--ink);color:#fff}.btn-dark:hover{background:var(--bronze);border-color:var(--bronze)}
+.reveal{opacity:1;transform:none}.motion-enabled .reveal{opacity:0;transform:translateY(25px);transition:opacity .9s var(--ease),transform 1.1s var(--ease);transition-delay:var(--reveal-delay,0ms)}.motion-enabled .reveal.visible{opacity:1;transform:none}.site-progress{display:none}
+/* Navigation lumineuse, détails bronze */
+.header{position:fixed;z-index:50;top:0;width:100%;background:rgba(251,250,247,.95);backdrop-filter:blur(18px);border-bottom:1px solid #c7b7a04d;transition:box-shadow .35s}.nav{height:86px;display:flex;align-items:center;justify-content:space-between;gap:28px;transition:height .35s}.brand{display:flex;align-items:center;gap:16px;flex:none}.brand-logo{width:56px;height:56px;object-fit:contain}.brand-word{font:400 24px var(--serif);white-space:nowrap}
+.links{display:flex;align-items:center;gap:29px;list-style:none}.links a{font-size:9px;text-transform:uppercase;letter-spacing:.12em;white-space:nowrap;position:relative}.links a:not(.nav-cta):after{content:"";position:absolute;left:0;right:0;bottom:-9px;height:1px;background:var(--bronze);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}.links a:hover:after,.links a[aria-current]:after{transform:scaleX(1)}
+.nav-cta{display:inline-flex;justify-content:center;align-items:center;min-height:44px;padding:0 23px;border:1px solid var(--ink);background:var(--ink);color:white;transition:background .3s,border-color .3s}.nav-cta:hover{background:var(--bronze);border-color:var(--bronze)}.header.scrolled{box-shadow:0 5px 26px #4436210b}.header.scrolled .nav{height:72px}
+.menu-toggle{display:none;width:43px;height:43px;background:none;border:1px solid var(--line);align-items:center;justify-content:center}.menu-toggle svg{width:19px;height:19px}
+/* Le salon, au premier plan */
+.hero{padding:110px 24px 30px;background:var(--cream);position:relative;overflow:hidden}.hero-stage{position:relative;max-width:1800px;margin:auto;overflow:hidden}.hero-image{width:100%;height:auto;aspect-ratio:8/3;object-fit:cover;object-position:left center;transform:scale(1.012);transform-origin:center}
+.hero-inner{position:absolute;right:32px;top:50%;transform:translateY(-50%);width:32%;padding:38px 34px;background:rgba(251,249,244,.97);border:1px solid #fff9;box-shadow:0 25px 60px #44311c24;z-index:1}
+.hero .kicker{font-size:8px;letter-spacing:.18em;gap:10px}.hero .kicker:before{width:22px}.hero h1{font:400 clamp(58px,5.7vw,88px)/.87 var(--serif);letter-spacing:-.055em;margin:26px 0 22px}.hero h1 em{font-weight:400;display:block;font-size:.65em;letter-spacing:-.03em;line-height:.98;margin-top:13px;color:var(--bronze)}.hero-sub{font-size:8px;letter-spacing:.21em;text-transform:uppercase;color:var(--soft);margin:0 0 26px}.hero-actions{display:flex;flex-direction:column;align-items:flex-start;gap:19px}.hero-actions .btn{width:100%;padding:0 12px;min-height:50px;font-size:9px;letter-spacing:.12em}.hero-phone{font:400 25px var(--serif);align-self:center;color:var(--ink);border-bottom:1px solid #95734d60;padding-bottom:3px}
+.motion-enabled .hero-stage{animation:photo-entry 1.2s both var(--ease)}.motion-enabled .hero-inner{animation:panel-entry 1.15s .18s both var(--ease)}@keyframes photo-entry{from{opacity:0;clip-path:inset(3%)}to{opacity:1;clip-path:inset(0)}}@keyframes panel-entry{from{opacity:0;translate:0 25px}to{opacity:1;translate:0 0}}
+/* Une composition éditoriale, chaleureuse */
+.intro{padding:118px 0 108px}.intro .container{display:grid;grid-template-columns:1.1fr .8fr;column-gap:100px}.intro .kicker{grid-column:1/-1}.intro .display{grid-column:1;grid-row:2;margin-top:26px;font-size:clamp(65px,6.5vw,99px)}.intro .copy{grid-column:2;grid-row:2;align-self:end;padding-bottom:8px;font-size:15px;max-width:440px}.mini-values{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);margin-top:62px;border-block:1px solid var(--line)}.value{padding:24px 20px;text-align:center;font:italic 400 30px var(--serif);color:var(--bronze)}.value+.value{border-left:1px solid var(--line)}
+.story{padding:120px 0;background:var(--cream)}.story-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(65px,8vw,130px);align-items:start}.story-photo{position:sticky;top:110px;padding:15px 0 0 15px}.story-photo:before{content:"";position:absolute;inset:0 15px 15px 0;border:1px solid #b3936d80;border-radius:260px 260px 0 0}.story-photo img{height:710px;object-fit:cover;object-position:center 30%;border-radius:250px 250px 0 0;position:relative}.story-badge{position:absolute;bottom:35px;right:-22px;width:150px;min-height:115px;background:var(--paper);border:1px solid var(--line);box-shadow:0 12px 35px #4d39251a;display:grid;place-items:center;text-align:center;font:italic 400 24px/1.05 var(--serif);color:var(--bronze);padding:18px}.story-text .display{font-size:clamp(62px,6vw,91px);margin:28px 0 32px}.story-text .copy{margin-bottom:19px}.signature{font:italic 400 31px var(--serif);color:var(--bronze);margin-top:30px;padding-top:23px;border-top:1px solid var(--line)}
+/* Savoir-faire : photos et gestes en regard */
+.services{padding:120px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:65px;margin-bottom:60px}.section-head .display{font-size:clamp(62px,6vw,94px)}.section-head .copy{max-width:360px;padding-bottom:8px}.services-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:75px;align-items:start}.services-visual{position:sticky;top:112px;padding:12px;border:1px solid var(--line);background:var(--cream)}.services-visual img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:opacity .35s,transform .8s var(--ease)}.services-visual figcaption{display:none}.services-list{border-top:1px solid var(--line)}
+.service{display:grid;grid-template-columns:44px 1fr;column-gap:22px;row-gap:9px;padding:24px 0 25px;border-bottom:1px solid var(--line);position:relative;transition:color .3s}.num{font:italic 400 28px var(--serif);color:var(--gold);grid-row:1/3;padding-top:2px}.service-name{font:400 clamp(29px,2.6vw,39px)/1.08 var(--serif);letter-spacing:-.02em}.service-desc{font-size:12px;line-height:1.85;color:var(--soft);max-width:480px}.service:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--bronze);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}.service:hover:after{transform:scaleX(1)}.service:hover .service-name{color:var(--bronze)}
+/* Une mosaïque de réalisations */
+.gallery{padding:115px 0 85px;background:var(--cream)}.gallery-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:60px}.gallery-head .display{font-size:clamp(65px,6.8vw,105px)}.gallery-track{columns:3;column-gap:25px;max-width:1320px;width:calc(100% - 96px);margin:auto}.card{break-inside:avoid;margin-bottom:28px}.card-frame{display:block;width:100%;padding:0;border:0;overflow:hidden;background:var(--stone);cursor:zoom-in}.card img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;transition:transform 1s var(--ease),filter .5s}.card:nth-child(3n+2) img{aspect-ratio:4/5}.card:nth-child(3n) img{aspect-ratio:1/1.1}.card-frame:hover img{transform:scale(1.035);filter:brightness(1.025)}.card-frame:focus-visible{outline-offset:4px}.caption{display:flex;justify-content:space-between;gap:18px;padding:15px 2px 0;font-size:8px;line-height:1.6;letter-spacing:.11em;text-transform:uppercase;color:var(--soft)}.caption span:first-child{color:var(--bronze)}
+/* La carte, comme un menu de maison */
+.prices{padding:120px 0}.prices-top{display:grid;grid-template-columns:1fr .8fr;column-gap:100px;align-items:end;margin-bottom:60px}.prices-top .kicker{grid-column:1/-1}.prices-top .display{grid-column:1;grid-row:2;margin-top:25px}.prices-top .copy{grid-column:2;grid-row:2;max-width:450px;padding-bottom:9px}.price-content{display:grid;grid-template-columns:190px minmax(0,1fr);column-gap:52px;align-items:start}.tabs{grid-column:1;grid-row:1;display:flex;flex-direction:column;position:sticky;top:112px;gap:0;border-top:1px solid var(--line)}.tab{padding:22px 15px 22px 0;background:none;border:0;border-bottom:1px solid var(--line);font:400 26px var(--serif);text-align:left;position:relative;transition:color .3s,padding .3s}.tab:before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--bronze);transform:scaleY(0);transition:transform .35s var(--ease)}.tab.active{color:var(--bronze);padding-left:18px}.tab.active:before{transform:scaleY(.55)}.tab:hover{color:var(--bronze)}
+.panel{grid-column:2;grid-row:1;display:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}.panel.active{display:grid;animation:soft-in .45s var(--ease)}.panel[hidden]{display:none}@keyframes soft-in{from{opacity:.1;transform:translateY(10px)}to{opacity:1;transform:none}}
+.price-box{padding:30px 27px 26px;border:1px solid var(--line);background:var(--paper)}.price-box h3{font:400 33px/1.05 var(--serif);letter-spacing:-.02em;padding-bottom:23px;border-bottom:1px solid var(--bronze);margin-bottom:12px}.price-line{display:flex;align-items:baseline;gap:11px;padding:13px 0;border-bottom:1px solid #ded5c873;font-size:12px;line-height:1.65}.price-line:last-child{border:0}.price-name{max-width:77%}.dots{flex:1;min-width:4px}.amount{font:500 23px/1 var(--serif);color:#775837;white-space:nowrap;font-variant-numeric:tabular-nums}.price-note{font-size:11px;line-height:1.9;color:var(--soft);max-width:730px;margin:36px auto 0;text-align:center}
+/* Rendez-vous, dans les tons du salon */
+.booking{padding:45px 24px 95px;background:var(--paper);text-align:center}.booking .container{width:min(1416px,100%);padding:90px 30px 95px;border:1px solid #bd9e7770;background:linear-gradient(135deg,#eee6d766,#faf8f2 55%,#e6dac64d);position:relative}.booking .container:before{content:"";position:absolute;inset:10px;border:1px solid #b3936d30;pointer-events:none}.booking .kicker{justify-content:center}.booking .display{font-size:clamp(72px,8.5vw,132px);margin:28px auto;max-width:1050px}.booking .copy{max-width:570px;margin:0 auto 33px}.booking .btn{position:relative}
+/* Le contact, sans pictogrammes superflus */
+.footer{padding:85px 0 30px;background:#27221d;color:#f3eee5}.footer-grid{display:grid;grid-template-columns:1.25fr .7fr .65fr;gap:65px;padding-bottom:70px}.footer-brand{display:flex;align-items:center;gap:18px;margin-bottom:24px}.footer-logo{width:65px;height:65px;object-fit:contain;filter:brightness(0) invert(.92)}.footer-brand .kicker:before{display:none}.footer-title{font:400 clamp(55px,5.7vw,86px)/.91 var(--serif);letter-spacing:-.035em}.footer-phone{display:inline-block;font:400 28px var(--serif);color:#cdb18b;margin-top:24px}.footer h4{font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#cdb18b;margin:12px 0 22px}.footer p,.footer .col a{font-size:12px;line-height:2.1;color:#d3c9bb}.footer .col a{transition:color .3s}.footer .col a:hover{color:white}.instagram-link{display:inline-flex;align-items:center;gap:10px}.instagram-link svg{width:19px;height:19px;flex:none;color:#cdb18b}.footer-bottom{padding-top:25px;border-top:1px solid #b3936d35;display:flex;justify-content:space-between;gap:25px;font-size:8px;letter-spacing:.1em;text-transform:uppercase;line-height:1.8;color:#b9ab98}
+.lightbox{position:fixed;inset:0;margin:0;width:100vw;height:100dvh;max-width:none;max-height:none;background:rgba(24,20,16,.97);color:var(--paper);border:0;padding:54px 24px 25px;overflow:hidden}.lightbox::backdrop{background:#181410f5}.lightbox[open]{display:flex;flex-direction:column;align-items:center;justify-content:center;animation:soft-in .3s var(--ease)}.lightbox img{max-width:min(90vw,1100px);max-height:calc(100dvh - 125px);width:auto;height:auto;object-fit:contain}.lightbox-caption{font-size:10px;letter-spacing:.15em;margin-top:17px;text-align:center;text-transform:uppercase;color:#cfb58f}.lightbox-close{position:absolute;top:20px;right:24px;width:43px;height:43px;display:grid;place-items:center;border:1px solid #b3936d70;background:none;color:var(--paper)}.lightbox-close svg{width:18px;height:18px}.lightbox-close:hover{background:var(--bronze)}
+@media(min-width:1800px){.hero-inner{width:490px;padding:45px}.hero h1{font-size:96px}}
+@media(max-width:1150px){.container{width:calc(100% - 64px)}.links{gap:20px}.nav{gap:20px}.brand-word{font-size:22px}.hero-inner{right:24px;padding:27px;width:34%}.hero h1{font-size:65px}.hero .kicker{letter-spacing:.12em;font-size:7px}.hero-sub{letter-spacing:.12em;margin-bottom:20px}.hero h1{margin-block:21px}.hero-actions{gap:13px}.hero-actions .btn{min-height:44px;font-size:8px}.hero-phone{font-size:23px}.intro .container,.prices-top{column-gap:60px}.story-grid{gap:65px}.story-photo img{height:630px}.story-text .display{font-size:75px}.services-grid{gap:45px}.service{column-gap:16px;padding-block:20px}.service-name{font-size:31px}.gallery-track{width:calc(100% - 64px);column-gap:20px}.price-content{grid-template-columns:155px 1fr;gap:30px}.price-box{padding:27px 23px}.price-box h3{font-size:29px}.footer-grid{gap:40px}}
+@media(max-width:1100px){.brand-word{display:none}.hero{padding:100px 18px 25px}.hero-stage{overflow:visible}.hero-image{aspect-ratio:8/3;transform:none}.hero-inner{width:calc(100% - 64px);position:relative;top:auto;right:auto;transform:none;margin:-35px auto 0;padding:32px 35px;text-align:center}.hero .kicker{justify-content:center;font-size:9px}.hero h1{font-size:73px;display:flex;justify-content:center;align-items:baseline;gap:18px;margin:22px 0}.hero h1 em{font-size:.6em;margin:0;max-width:5.5em;text-align:left}.hero-sub{font-size:8px}.hero-actions{flex-direction:row;justify-content:center;align-items:center;gap:26px}.hero-actions .btn{width:auto;min-height:50px;padding-inline:25px;font-size:9px}.hero-phone{align-self:auto}.intro{padding:95px 0 85px}.intro .container{column-gap:45px}.intro .display{font-size:72px}.intro .copy{font-size:13px}.story{padding:95px 0}.story-grid{grid-template-columns:1fr;gap:65px}.story-photo{position:relative;top:auto;max-width:540px;margin:auto;width:100%}.story-photo img{height:auto;max-height:710px}.story-text{max-width:680px;margin:auto}.story-text .display{font-size:84px}.services{padding:95px 0}.section-head{gap:35px}.section-head .display{font-size:72px}.section-head .copy{max-width:300px;font-size:13px}.services-grid{grid-template-columns:.8fr 1.2fr;gap:30px}.services-visual{padding:8px;top:100px}.service{grid-template-columns:30px 1fr;column-gap:12px}.service-name{font-size:29px}.num{font-size:24px}.service-desc{font-size:11px}.gallery{padding:95px 0 65px}.gallery-track{columns:2}.prices{padding:95px 0}.prices-top{column-gap:40px}.prices-top .display{font-size:80px}.prices-top .copy{font-size:13px}.price-content{grid-template-columns:1fr}.tabs{grid-column:1;grid-row:1;position:sticky;top:84px;z-index:10;flex-direction:row;background:rgba(251,250,247,.96);border-block:1px solid var(--line);margin-bottom:25px;backdrop-filter:blur(15px)}.tab{flex:1;padding:18px 12px;font-size:23px;text-align:center;border:0;white-space:nowrap}.tab.active{padding-left:12px}.tab:before{left:10px;right:10px;top:auto;bottom:0;width:auto;height:1px;transform:scaleX(0)}.tab.active:before{transform:scaleX(1)}.panel{grid-column:1;grid-row:2}.booking .display{font-size:94px}.footer-grid{grid-template-columns:1.1fr .9fr;gap:38px}.footer-grid>div:first-child{grid-row:span 2}.footer-grid>div:last-child{grid-column:2}.footer-title{font-size:75px}}
+@media(max-width:650px){
+ html{scroll-padding-top:93px}.container{width:calc(100% - 36px)}.header .nav{height:76px;gap:12px}.header.scrolled .nav{height:68px}.brand{margin-right:auto}.brand-logo{width:44px;height:44px}.links{gap:0}.links li:not(:last-child){display:none}.links a{font-size:8px;letter-spacing:.1em}.nav-cta{min-height:43px;padding:0 15px}.menu-toggle{display:flex;flex:none}.header.menu-open .links{position:absolute;top:82px;left:12px;right:12px;display:flex;flex-direction:column;align-items:stretch;padding:12px 20px 22px;border:1px solid var(--line);background:var(--paper);box-shadow:0 20px 40px #44321e22}.header.menu-open .links li{display:block}.header.menu-open .links a:not(.nav-cta){display:block;padding:18px 5px;font-size:11px;border-bottom:1px solid var(--line)}.header.menu-open .links a:after{display:none}.header.menu-open .nav-cta{margin-top:17px}
+ .hero{padding:90px 10px 22px}.hero-image{aspect-ratio:3/2;object-position:left center}.hero-inner{width:calc(100% - 22px);padding:29px 22px 28px;margin-top:-22px;box-shadow:0 16px 35px #44311c12}.hero .kicker{font-size:7px;letter-spacing:.17em;gap:10px}.hero .kicker:before{width:20px}.hero h1{display:block;font-size:clamp(54px,15.7vw,74px);margin:22px 0 19px;line-height:.88}.hero h1 em{font-size:.64em;max-width:none;text-align:center;line-height:1;margin-top:11px}.hero-sub{font-size:7px;letter-spacing:.18em;margin-bottom:22px}.hero-actions{flex-direction:column;gap:16px}.hero-actions .btn{width:100%;min-height:49px;font-size:8px;letter-spacing:.14em}.hero-phone{font-size:23px}
+ .kicker{font-size:9px;letter-spacing:.19em;gap:12px}.kicker:before{width:24px}.display{font-size:clamp(52px,14vw,80px)}.copy{font-size:13px;line-height:1.9}.intro{padding:75px 0 70px}.intro .container{display:block}.intro .display{font-size:clamp(55px,14.5vw,82px);margin-top:23px}.intro .copy{font-size:13px;margin-top:24px;padding:0;max-width:none}.mini-values{margin-top:35px}.value{font-size:23px;padding:20px 7px}
+ .story{padding:73px 0 78px}.story-grid{gap:65px}.story-photo{padding:12px 0 0 12px;width:calc(100% - 12px);margin-left:0}.story-photo:before{inset:0 12px 12px 0}.story-photo img{max-height:570px}.story-badge{right:-12px;bottom:-24px;width:128px;min-height:100px;font-size:22px}.story-text .display{font-size:clamp(57px,15vw,85px);margin:25px 0 29px}.story-text .copy{font-size:13px;margin-bottom:17px}.signature{font-size:29px;margin-top:25px}
+ .services{padding:78px 0}.section-head{display:block;margin-bottom:35px}.section-head .display{font-size:clamp(58px,15vw,84px)}.section-head .copy{margin-top:24px;font-size:13px;max-width:370px}.services-grid{display:block}.services-visual{display:none}.service{grid-template-columns:32px 1fr;column-gap:15px;row-gap:10px;padding:25px 0}.service-name{font-size:33px}.num{font-size:24px}.service-desc{font-size:12px;line-height:1.85}
+ .gallery{padding:80px 0 50px}.gallery-head{margin-bottom:35px}.gallery-head .display{font-size:clamp(58px,15vw,84px)}.gallery-track{width:calc(100% - 28px);column-gap:13px}.card{margin-bottom:21px}.caption{display:block;font-size:7px;letter-spacing:.04em;padding-top:10px;line-height:1.7}.caption span{display:block}.card img{aspect-ratio:3/4}.card:nth-child(3n+2) img{aspect-ratio:3/4}.card:nth-child(3n) img{aspect-ratio:4/5}
+ .prices{padding:80px 0}.prices-top{display:block;margin-bottom:30px}.prices-top .display{font-size:68px;margin-top:24px}.prices-top .copy{font-size:13px;max-width:none;margin-top:22px;padding:0}.tabs{top:78px;overflow-x:auto;scrollbar-width:none;width:100%;max-width:100%;margin-bottom:24px}.tabs::-webkit-scrollbar{display:none}.tab{flex:none;font-size:23px;padding:17px 14px}.tab:first-child{padding-left:7px}.tab.active{padding-left:14px}.tab:first-child.active{padding-left:7px}.panel{grid-template-columns:1fr;gap:17px}.price-box{padding:28px 22px 23px}.price-box h3{font-size:34px}.price-line{font-size:12px;padding:12px 0;gap:8px}.amount{font-size:23px}.price-note{font-size:10px;margin-top:27px}
+ .booking{padding:5px 12px 70px}.booking .container{padding:65px 22px}.booking .container:before{inset:7px}.booking .kicker{font-size:7px;letter-spacing:.15em;gap:9px}.booking .kicker:before{width:19px}.booking .display{font-size:clamp(58px,15vw,86px);margin:25px auto}.booking .copy{font-size:12px}.booking .btn{width:100%;font-size:8px;padding-inline:13px;min-height:53px}
+ .footer{padding:62px 0 26px}.footer-grid{grid-template-columns:1fr 1fr;gap:38px 20px;padding-bottom:42px}.footer-grid>div:first-child{grid-column:1/-1;grid-row:auto}.footer-grid>div:last-child{grid-column:2}.footer-brand{gap:16px;margin-bottom:23px}.footer-logo{width:57px;height:57px}.footer-title{font-size:77px}.footer-phone{font-size:28px;margin-top:22px}.footer h4{font-size:8px;letter-spacing:.16em;margin:0 0 15px}.footer p,.footer .col a{font-size:11px}.footer-bottom{flex-direction:column;gap:10px;font-size:8px;letter-spacing:.07em}.instagram-link{gap:8px}.instagram-link svg{width:17px;height:17px}.lightbox{padding-inline:14px}.lightbox img{max-width:100%;max-height:calc(100dvh - 140px)}.lightbox-close{top:16px;right:16px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.motion-enabled .reveal{opacity:1;transform:none}.hero-image{transform:none}}
+
+</style>
+</head>
+<body>
+<div class="site-progress" aria-hidden="true"></div>
+<header class="header">
+  <div class="nav container">
+    <a class="brand" href="#accueil">
+      <img class="brand-logo" src="Images/logo.jpg" alt="Logo Raymond Azar">
+      <span class="brand-word">Raymond Azar</span>
+    </a>
+    <ul class="links" id="main-navigation">
+      <li><a href="#salon">Le salon</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#realisations">Réalisations</a></li>
+      <li><a href="#tarifs">Tarifs</a></li>
+      <li><a class="nav-cta" href="tel:0143620838">Rendez-vous</a></li>
+    </ul>
+<button type="button" class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="accueil">
+<div class="hero-stage">
+  <img class="hero-image" src="Images/banniere-raymond-tiffany-integree.webp" width="2048" height="768" fetchpriority="high" alt="Le salon : comptoir à gauche avec Raymond Azar &amp; Tiffany Azar, Salon de coiffure, et monogramme sur le mur du fond.">
+  <div class="hero-inner">
+    <div class="kicker">Salon de coiffure · Les Lilas</div>
+    <h1>L’élégance,<em>jusque dans le détail.</em></h1>
+    <p class="hero-sub">Femme · Homme · Enfant</p>
+    <div class="hero-actions">
+      <a class="btn btn-dark" href="tel:0143620838">Prendre rendez-vous</a>
+      <a class="hero-phone" href="tel:0143620838">01 43 62 08 38</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="intro reveal">
+ <div class="container">
+   <div class="kicker">La maison</div>
+   <h2 class="display">Votre beauté,<br>notre savoir-faire.</h2>
+   <p class="copy">Coupe, couleur, balayage, soins et transformations : chaque prestation est pensée avec attention pour révéler votre style et respecter votre chevelure.</p>
+   <div class="mini-values">
+     <div class="value">Écoute</div><div class="value">Précision</div><div class="value">Élégance</div>
+   </div>
+ </div>
+</section>
+
+<section class="story" id="salon">
+ <div class="container story-grid">
+   <div class="story-photo reveal">
+     <img loading="lazy" decoding="async" src="Images/equipe.jpg" alt="Raymond Azar et Tiffany Azar au salon">
+     <div class="story-badge">Une histoire<br>de famille</div>
+   </div>
+   <div class="story-text reveal">
+     <div class="kicker">Notre histoire</div>
+     <h2 class="display">Le savoir-faire<br>en héritage.</h2>
+     
+<p class="copy">Depuis plus de 40 ans, la coiffure est une histoire de famille chez les Azar. Fondé par Raymond Azar, le salon porte depuis ses débuts une passion pour le métier, le goût du travail bien fait et la transmission d’un véritable savoir-faire.</p>
+
+<p class="copy">Depuis 2007, le Salon Raymond Azar est installé aux Lilas, où il accueille une clientèle femme, homme et enfant, dans une ambiance à la fois chaleureuse, familiale et professionnelle.</p>
+
+<p class="copy">Aujourd’hui, Raymond Azar et sa fille Tiffany Azar perpétuent cette histoire familiale et font évoluer le salon avec la même exigence et la même passion pour la coiffure.</p>
+
+<p class="copy">Tiffany est notamment spécialisée dans les techniques de couleur, le balayage et l’ombré hair, avec une attention particulière portée à la personnalisation de chaque résultat.</p>
+
+<p class="copy">Salon polyvalent, nous vous accompagnons dans toutes vos envies coiffure, pour femmes, hommes et enfants, en privilégiant toujours l’écoute, le conseil et un résultat qui vous ressemble.</p>
+
+<p class="copy">Une histoire de famille, un savoir-faire transmis, une passion qui continue.</p>
+
+     <div class="signature">Raymond & Tiffany</div>
+   </div>
+ </div>
+</section>
+
+<section class="services" id="expertise">
+ <div class="container">
+  <div class="section-head reveal">
+   <div><div class="kicker">Notre savoir-faire</div><h2 class="display" style="margin-top:18px">L’expertise<br>Raymond Azar.</h2></div>
+   <p class="copy">Des prestations personnalisées, réalisées avec précision et adaptées à votre style, votre visage et votre chevelure.</p>
+  </div>
+  <div class="services-grid"><figure class="services-visual reveal" aria-hidden="true"><img src="Images/realisation-1.jpg" loading="lazy" decoding="async" alt=""></figure><div class="services-list reveal">
+   <div class="service"><div class="num">01</div><div class="service-name">Coupe & Brushing</div><div class="service-desc">Des coupes et coiffages pensés pour mettre en valeur votre visage et votre style.</div></div>
+   <div class="service"><div class="num">02</div><div class="service-name">Couleur</div><div class="service-desc">Coloration racines, patines et techniques personnalisées pour révéler profondeur et éclat.</div></div>
+   <div class="service"><div class="num">03</div><div class="service-name">Balayage & Ombré</div><div class="service-desc">Des nuances travaillées sur mesure pour créer lumière, contraste et naturel.</div></div>
+   <div class="service"><div class="num">04</div><div class="service-name">Lissage & Soins</div><div class="service-desc">Lissage brésilien, botox capillaire et soins profonds pour sublimer la matière.</div></div>
+   <div class="service"><div class="num">05</div><div class="service-name">Homme & Enfant</div><div class="service-desc">Coupe, dégradé américain, barbe, cover homme et prestations adaptées aux plus jeunes.</div></div>
+  </div>
+</div>
+ </div>
+</section>
+
+<section class="gallery" id="realisations">
+ <div class="container gallery-head reveal">
+  <div><div class="kicker">Nos réalisations</div><h2 class="display" style="margin-top:18px">La couleur<br>en mouvement.</h2></div>
+  
+ </div>
+ <div class="gallery-track" id="galleryTrack">
+  <div class="card"><button type="button" class="card-frame" aria-label="Agrandir : Balayage blond"><img loading="lazy" decoding="async" src="Images/realisation-1.jpg" alt="Balayage blond"></button><div class="caption"><span>Balayage</span><span>Raymond Azar</span></div></div>
+  <div class="card"><button type="button" class="card-frame" aria-label="Agrandir : Balayage naturel"><img loading="lazy" decoding="async" src="Images/realisation-2.jpg" alt="Balayage naturel"></button><div class="caption"><span>Balayage</span><span>Les Lilas</span></div></div>
+  <div class="card"><button type="button" class="card-frame" aria-label="Agrandir : Couleur naturelle"><img loading="lazy" decoding="async" src="Images/realisation-3.jpg" alt="Couleur naturelle"></button><div class="caption"><span>Couleur</span><span>Raymond Azar</span></div></div>
+  <div class="card"><button type="button" class="card-frame" aria-label="Agrandir : Ombré hair"><img loading="lazy" decoding="async" src="Images/realisation-4.jpg" alt="Ombré hair"></button><div class="caption"><span>Ombré Hair</span><span>Les Lilas</span></div></div>
+  <div class="card"><button type="button" class="card-frame" aria-label="Agrandir : Technique de couleur"><img loading="lazy" decoding="async" src="Images/realisation-5.jpg" alt="Technique de couleur"></button><div class="caption"><span>Coloration</span><span>Raymond Azar</span></div></div>
+ 
+<div class="card"><button type="button" class="card-frame" aria-label="Agrandir : Réalisation coiffure 6"><img loading="lazy" decoding="async" src="Images/realisation-6.jpg" alt="Réalisation coiffure 6"></button><div class="caption"><span>Nos réalisations</span><span>Raymond Azar</span></div></div>
+
+<div class="card"><button type="button" class="card-frame" aria-label="Agrandir : Réalisation coiffure 7"><img loading="lazy" decoding="async" src="Images/realisation-7.jpg" alt="Réalisation coiffure 7"></button><div class="caption"><span>Nos réalisations</span><span>Raymond Azar</span></div></div>
+
+<div class="card"><button type="button" class="card-frame" aria-label="Agrandir : Réalisation coiffure 8"><img loading="lazy" decoding="async" src="Images/realisation-8.jpg" alt="Réalisation coiffure 8"></button><div class="caption"><span>Nos réalisations</span><span>Raymond Azar</span></div></div>
+
+<div class="card"><button type="button" class="card-frame" aria-label="Agrandir : Réalisation coiffure 9"><img loading="lazy" decoding="async" src="Images/realisation-9.jpg" alt="Réalisation coiffure 9"></button><div class="caption"><span>Nos réalisations</span><span>Raymond Azar</span></div></div>
+
+<div class="card"><button type="button" class="card-frame" aria-label="Agrandir : Réalisation coiffure 10"><img loading="lazy" decoding="async" src="Images/realisation-10.jpg" alt="Réalisation coiffure 10"></button><div class="caption"><span>Nos réalisations</span><span>Raymond Azar</span></div></div>
+
+<div class="card"><button type="button" class="card-frame" aria-label="Agrandir : Réalisation coiffure 11"><img loading="lazy" decoding="async" src="Images/realisation-11.jpg" alt="Réalisation coiffure 11"></button><div class="caption"><span>Nos réalisations</span><span>Raymond Azar</span></div></div>
+
+<div class="card"><button type="button" class="card-frame" aria-label="Agrandir : Réalisation coiffure 12"><img loading="lazy" decoding="async" src="Images/realisation-12.jpg" alt="Réalisation coiffure 12"></button><div class="caption"><span>Nos réalisations</span><span>Raymond Azar</span></div></div>
+
+</div>
+</section>
+
+<section class="prices" id="tarifs">
+ <div class="container">
+  <div class="prices-top reveal"><div class="kicker">La carte</div><h2 class="display">Nos tarifs.</h2><p class="copy">Une carte claire et élégante. Pour les transformations importantes, contactez le salon afin d’établir un diagnostic personnalisé.</p></div>
+  <div class="price-content"><div class="tabs">
+   <button class="tab active" onclick="showPrice('femme',this)">Femme</button>
+   <button class="tab" onclick="showPrice('techniques',this)">Couleur</button>
+   <button class="tab" onclick="showPrice('homme',this)">Homme</button>
+   <button class="tab" onclick="showPrice('soins',this)">Soins & Lissage</button>
+  </div>
+
+  <div class="panel active" id="femme">
+   <div class="price-box"><h3>Coupe & Brushing</h3>
+    <div class="price-line"><span class="price-name">Shampooing brushing — cheveux courts</span><span class="dots"></span><span class="amount">24 €</span></div>
+    <div class="price-line"><span class="price-name">Shampooing brushing — cheveux longs</span><span class="dots"></span><span class="amount">28 €</span></div>
+    <div class="price-line"><span class="price-name">Shampooing coupe brushing — cheveux courts</span><span class="dots"></span><span class="amount">30 €</span></div>
+    <div class="price-line"><span class="price-name">Shampooing coupe brushing — cheveux longs</span><span class="dots"></span><span class="amount">36 €</span></div>
+    <div class="price-line"><span class="price-name">Brushing bouclé — cheveux courts</span><span class="dots"></span><span class="amount">32 €</span></div>
+    <div class="price-line"><span class="price-name">Brushing bouclé — cheveux longs</span><span class="dots"></span><span class="amount">35 €</span></div>
+    <div class="price-line"><span class="price-name">Brushing wavy — cheveux courts</span><span class="dots"></span><span class="amount">33 €</span></div>
+    <div class="price-line"><span class="price-name">Brushing wavy — cheveux longs</span><span class="dots"></span><span class="amount">35 €</span></div>
+    <div class="price-line"><span class="price-name">Shampooing séchage</span><span class="dots"></span><span class="amount">15 €</span></div>
+    <div class="price-line"><span class="price-name">Shampooing coupe séchage</span><span class="dots"></span><span class="amount">27 €</span></div>
+    <div class="price-line"><span class="price-name">Brushing difficile</span><span class="dots"></span><span class="amount">33 €</span></div>
+   </div>
+   <div class="price-box"><h3>Forfaits couleur</h3>
+    <div class="price-line"><span class="price-name">Couleur racines + brushing court</span><span class="dots"></span><span class="amount">55 €</span></div>
+    <div class="price-line"><span class="price-name">Couleur racines + brushing long</span><span class="dots"></span><span class="amount">61 €</span></div>
+    <div class="price-line"><span class="price-name">Couleur racines + coupe brushing court</span><span class="dots"></span><span class="amount">57 €</span></div>
+    <div class="price-line"><span class="price-name">Couleur racines + coupe brushing long</span><span class="dots"></span><span class="amount">66 €</span></div>
+   </div>
+  </div>
+
+  <div class="panel" id="techniques">
+   <div class="price-box"><h3>Bar à couleur</h3>
+    <div class="price-line"><span class="price-name">Couleur racines</span><span class="dots"></span><span class="amount">37 €</span></div>
+    <div class="price-line"><span class="price-name">Balayage — cheveux courts</span><span class="dots"></span><span class="amount">55 €</span></div>
+    <div class="price-line"><span class="price-name">Balayage — cheveux longs</span><span class="dots"></span><span class="amount">68 €</span></div>
+    <div class="price-line"><span class="price-name">Mèches — cheveux courts</span><span class="dots"></span><span class="amount">88 €</span></div>
+    <div class="price-line"><span class="price-name">Mèches — cheveux longs</span><span class="dots"></span><span class="amount">98 €</span></div>
+    <div class="price-line"><span class="price-name">Ombré Hair — cheveux courts</span><span class="dots"></span><span class="amount">120 €</span></div>
+    <div class="price-line"><span class="price-name">Ombré Hair — cheveux longs</span><span class="dots"></span><span class="amount">150 €</span></div>
+    <div class="price-line"><span class="price-name">Tie & Dye — cheveux courts</span><span class="dots"></span><span class="amount">140 €</span></div>
+    <div class="price-line"><span class="price-name">Tie & Dye — cheveux longs</span><span class="dots"></span><span class="amount">170 €</span></div>
+    <div class="price-line"><span class="price-name">Décoloration / Effaceur</span><span class="dots"></span><span class="amount">Sur devis</span></div>
+   </div>
+   <div class="price-box"><h3>Rituel Patine</h3>
+    <div class="price-line"><span class="price-name">Patine Express — 15 min</span><span class="dots"></span><span class="amount">25 €</span></div>
+    <div class="price-line"><span class="price-name">Patine Technique — 45 min</span><span class="dots"></span><span class="amount">38 €</span></div>
+   </div>
+  </div>
+
+  <div class="panel" id="homme">
+   <div class="price-box"><h3>Homme</h3>
+    <div class="price-line"><span class="price-name">Shampooing coupe coiffage</span><span class="dots"></span><span class="amount">23 €</span></div>
+    <div class="price-line"><span class="price-name">Shampooing coupe brushing</span><span class="dots"></span><span class="amount">28 €</span></div>
+    <div class="price-line"><span class="price-name">Shampooing coupe barbe coiffage</span><span class="dots"></span><span class="amount">33 €</span></div>
+    <div class="price-line"><span class="price-name">Barbe seule</span><span class="dots"></span><span class="amount">12 €</span></div>
+   </div>
+   <div class="price-box"><h3>Bar à couleur homme</h3>
+    <div class="price-line"><span class="price-name">Cover semi-permanente + shampooing coiffage</span><span class="dots"></span><span class="amount">28 €</span></div>
+    <div class="price-line"><span class="price-name">Cover</span><span class="dots"></span><span class="amount">20 €</span></div>
+    <div class="price-line"><span class="price-name">Couleur</span><span class="dots"></span><span class="amount">25 €</span></div>
+    <div class="price-line"><span class="price-name">Dégradé américain</span><span class="dots"></span><span class="amount">24 €</span></div>
+   </div>
+   <div class="price-box"><h3>Enfants</h3>
+    <div class="price-line"><span class="price-name">Shampooing coupe garçon — moins de 6 ans</span><span class="dots"></span><span class="amount">18 €</span></div>
+    <div class="price-line"><span class="price-name">Shampooing coupe séchage fille — moins de 6 ans</span><span class="dots"></span><span class="amount">24 €</span></div>
+   </div>
+  </div>
+
+  <div class="panel" id="soins">
+   <div class="price-box"><h3>Lissage Brésilien</h3>
+    <div class="price-line"><span class="price-name">Cheveux courts</span><span class="dots"></span><span class="amount">À partir de 150 €</span></div>
+    <div class="price-line"><span class="price-name">Cheveux mi-longs</span><span class="dots"></span><span class="amount">À partir de 170 €</span></div>
+    <div class="price-line"><span class="price-name">Cheveux longs</span><span class="dots"></span><span class="amount">À partir de 200 €</span></div>
+   </div>
+   <div class="price-box"><h3>Botox Capillaire</h3>
+    <div class="price-line"><span class="price-name">Cheveux courts</span><span class="dots"></span><span class="amount">85 €</span></div>
+    <div class="price-line"><span class="price-name">Cheveux mi-longs</span><span class="dots"></span><span class="amount">100 €</span></div>
+    <div class="price-line"><span class="price-name">Cheveux longs</span><span class="dots"></span><span class="amount">120 €</span></div>
+   </div>
+   <div class="price-box"><h3>Soins & Suppléments</h3>
+    <div class="price-line"><span class="price-name">Soin démêlant</span><span class="dots"></span><span class="amount">5 €</span></div>
+    <div class="price-line"><span class="price-name">Soin profond sous casque</span><span class="dots"></span><span class="amount">15 €</span></div>
+    <div class="price-line"><span class="price-name">Brushing très long ou difficile</span><span class="dots"></span><span class="amount">+5 €</span></div>
+    <div class="price-line"><span class="price-name">Supplément couleur</span><span class="dots"></span><span class="amount">+10 €</span></div>
+    <div class="price-line"><span class="price-name">Shampooing traitant</span><span class="dots"></span><span class="amount">5 €</span></div>
+    <div class="price-line"><span class="price-name">Shampooing argent</span><span class="dots"></span><span class="amount">5 €</span></div>
+    <div class="price-line"><span class="price-name">Entretien frange</span><span class="dots"></span><span class="amount">10 €</span></div>
+    <div class="price-line"><span class="price-name">Création frange</span><span class="dots"></span><span class="amount">20 €</span></div>
+   </div>
+  </div>
+  </div>
+<p class="price-note">Les tarifs peuvent varier selon la longueur, l’épaisseur et le travail nécessaire. Pour une transformation importante, contactez directement le salon afin d’obtenir un diagnostic personnalisé.</p>
+ </div>
+</section>
+
+<section class="booking reveal">
+ <div class="container">
+  <div class="kicker">Votre prochain rendez-vous</div>
+  <h2 class="display">Confiez-nous<br>vos cheveux.</h2>
+  <p class="copy">Une envie de changement, une nouvelle couleur ou simplement votre rendez-vous habituel ? Contactez directement le salon.</p>
+  <a class="btn btn-dark" href="tel:0143620838">Appeler le 01 43 62 08 38</a>
+ </div>
+</section>
+</main>
+
+<footer class="footer" id="contact">
+ <div class="container">
+  <div class="footer-grid">
+   <div>
+    <div class="footer-brand"><img class="footer-logo" src="Images/logo.jpg" alt="Logo Raymond Azar"><div class="kicker" style="color:#bca98b">Salon Raymond Azar</div></div>
+    <h2 class="footer-title">À bientôt<br>au salon.</h2>
+    <a class="footer-phone" href="tel:0143620838">01 43 62 08 38</a>
+   </div>
+   <div class="col"><h4>Adresse</h4><p>2 Boulevard Eugène Decros<br>93260 Les Lilas</p></div>
+   <div class="col"><h4>Suivez-nous</h4><a href="https://www.instagram.com/coiffureraymondazar/?hl=fr" target="_blank" rel="noopener" class="instagram-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a><br><a href="#tarifs">Voir les tarifs</a></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Raymond Azar · Salon de coiffure aux Lilas</span><span>Femme · Homme · Enfant</span></div>
+ </div>
+</footer>
+
+<dialog class="lightbox" aria-label="Nos réalisations en grand format"><button type="button" class="lightbox-close" aria-label="Fermer la photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m5 5 14 14M19 5 5 19"/></svg></button><img alt=""><figcaption class="lightbox-caption"></figcaption></dialog>
+<script>
+(()=>{
+ 'use strict';
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ const header=document.querySelector('.header');
+ const progress=document.querySelector('.site-progress');
+ const heroImage=document.querySelector('.hero-image');
+ const menu=document.querySelector('.menu-toggle');
+ const closeMenu=()=>{header.classList.remove('menu-open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Ouvrir le menu');};
+ menu.addEventListener('click',()=>{const open=header.classList.toggle('menu-open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Fermer le menu':'Ouvrir le menu');});
+ document.querySelectorAll('.links a').forEach(link=>link.addEventListener('click',closeMenu));
+ document.addEventListener('click',event=>{if(!header.contains(event.target))closeMenu();});
+ document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu();});
+ let framePending=false;
+ function drawScroll(){
+  framePending=false;
+  const y=window.scrollY,max=document.documentElement.scrollHeight-window.innerHeight;
+  header.classList.toggle('scrolled',y>36);
+  progress.style.transform=`scaleX(${max>0?Math.min(1,y/max):0})`;
+  heroImage.style.setProperty('--parallax',!reduced.matches&&innerWidth>820?Math.min(8,y*.025)+'px':'0px');
+ }
+ window.addEventListener('scroll',()=>{if(!framePending){framePending=true;requestAnimationFrame(drawScroll);}},{passive:true});
+ window.addEventListener('resize',()=>{if(innerWidth>650)closeMenu();drawScroll();},{passive:true});
+ drawScroll();
+ if('IntersectionObserver' in window){
+  document.querySelectorAll('.service,.gallery-head,.prices-top').forEach(el=>el.classList.add('reveal'));
+  document.querySelectorAll('.service').forEach((el,i)=>el.style.setProperty('--reveal-delay',Math.min(i,3)*55+'ms'));
+  const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}});},{threshold:.08,rootMargin:'0px 0px -15px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  if(!reduced.matches)document.documentElement.classList.add('motion-enabled');
+ }
+ const navObserver='IntersectionObserver' in window?new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{if(entry.isIntersecting){document.querySelectorAll('.links a[href^="#"]').forEach(a=>{if(a.hash==='#'+entry.target.id)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}});
+ },{rootMargin:'-20% 0px -60% 0px'}):null;
+ document.querySelectorAll('section[id]').forEach(el=>navObserver?.observe(el));
+ const servicePhoto=document.querySelector('.services-visual img');
+ const serviceImages=['Images/realisation-1.jpg','Images/realisation-5.jpg','Images/realisation-2.jpg','Images/realisation-3.jpg','Images/realisation-4.jpg'];
+ let requestedService=0;
+ document.querySelectorAll('.service').forEach((service,i)=>service.addEventListener('pointerenter',()=>{
+  if(innerWidth<=650)return;requestedService=i;const preload=new Image();preload.src=serviceImages[i];
+  preload.decode().then(()=>{if(requestedService===i)servicePhoto.src=preload.src;}).catch(()=>{});
+ }));
+ const tabs=[...document.querySelectorAll('.tab')];
+ const panels=[...document.querySelectorAll('.panel')];
+ document.querySelector('.tabs').setAttribute('role','tablist');
+ document.querySelector('.tabs').setAttribute('aria-label','Catégories de tarifs');
+ tabs.forEach((tab,i)=>{tab.id='tab-'+panels[i].id;tab.setAttribute('role','tab');tab.setAttribute('aria-controls',panels[i].id);tab.setAttribute('aria-selected',String(tab.classList.contains('active')));tab.tabIndex=tab.classList.contains('active')?0:-1;panels[i].setAttribute('role','tabpanel');panels[i].setAttribute('aria-labelledby',tab.id);panels[i].hidden=!panels[i].classList.contains('active');});
+ window.showPrice=(id,button)=>{
+  panels.forEach(panel=>{const active=panel.id===id;panel.classList.toggle('active',active);panel.hidden=!active;});
+  tabs.forEach(tab=>{const active=tab===button;tab.classList.toggle('active',active);tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;});
+ };
+ tabs.forEach((tab,i)=>tab.addEventListener('keydown',event=>{
+  let next=i;
+  if(event.key==='ArrowRight')next=(i+1)%tabs.length;else if(event.key==='ArrowLeft')next=(i-1+tabs.length)%tabs.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=tabs.length-1;else return;
+  event.preventDefault();window.showPrice(panels[next].id,tabs[next]);tabs[next].focus();
+ }));
+ const dialog=document.querySelector('.lightbox');
+ const fullImage=dialog.querySelector('img');
+ const caption=dialog.querySelector('figcaption');
+ const frames=[...document.querySelectorAll('.card-frame')];
+ let photoIndex=0;
+ const updatePhoto=index=>{photoIndex=(index+frames.length)%frames.length;const image=frames[photoIndex].querySelector('img');fullImage.src=image.src;fullImage.alt=image.alt;caption.textContent=[...frames[photoIndex].parentElement.querySelectorAll('.caption span')].map(span=>span.textContent.trim()).join(' · ');};
+ frames.forEach((button,i)=>button.addEventListener('click',()=>{updatePhoto(i);dialog.showModal();document.body.style.overflow='hidden';}));
+ dialog.querySelector('button').addEventListener('click',()=>dialog.close());
+ dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
+ dialog.addEventListener('close',()=>{document.body.style.overflow='';});
+ dialog.addEventListener('keydown',event=>{if(event.key==='ArrowRight'){event.preventDefault();updatePhoto(photoIndex+1);}else if(event.key==='ArrowLeft'){event.preventDefault();updatePhoto(photoIndex-1);}});
+ document.querySelectorAll('.btn').forEach(button=>{
+  button.addEventListener('pointermove',event=>{if(reduced.matches||event.pointerType!=='mouse')return;const r=button.getBoundingClientRect();button.style.transform=`translate(${(event.clientX-r.left-r.width/2)*.035}px,${(event.clientY-r.top-r.height/2)*.07}px)`;});
+  button.addEventListener('pointerleave',()=>{button.style.transform='';});
+ });
+})();
+
+</script>
+</body>
+</html>
